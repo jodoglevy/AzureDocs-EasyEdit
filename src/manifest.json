@@ -1,0 +1,27 @@
+{
+    "name":"AzureDocs EasyEdit",
+    "version":"0.2",
+    "description":"AzureDocs EasyEdit",
+    "manifest_version": 2,
+    "incognito": "spanning",
+    "icons": {
+        "16": "images/icons/icon16.png",
+        "48": "images/icons/icon48.png",
+        "128": "images/icons/icon128.png"
+    },
+    "content_scripts":[{
+        "all_frames": true,
+        "css": [ "shared/jquery-ui-1.11.2/jquery-ui.min.css" ],
+        "matches":[
+            "*://*.azure.microsoft.com/*/documentation/articles/*"
+        ],
+        "js": ["shared/jquery-1.11.1.min.js", "shared/jquery-ui-1.11.2/jquery-ui.min.js", "shared/underscore-min.js", "shared/github.js", "shared/epiceditor.min.js", "config.js", "contentscripts/easyEdit.js"],
+        "run_at":"document_idle"
+    }],
+    "web_accessible_resources": [
+        "resources/*"
+    ],
+    "page_action":{
+        "default_title": "AzureDocs EasyEdit"
+    }
+}
